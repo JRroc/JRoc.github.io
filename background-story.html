@@ -8,6 +8,9 @@
   <meta name="description" content="">
   <meta name="author" content="Jurre Rikken">
 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link type="text/css" href="main.css" rel="stylesheet" media="screen" />
+
   <title>FeudalRealms</title>
 
   <!-- Bootstrap core CSS -->
@@ -22,7 +25,7 @@
   <link href="css/style.css" rel="stylesheet">
 
   <style>
-  table {
+  /* table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
@@ -37,6 +40,133 @@
   tr:nth-child(even) {
   background-color: #dddddd;
   }
+  body, html {
+padding: 0;
+margin: 0;
+height: 100vh;
+}
+
+
+a:link, a:visited {
+    color: #55FF55;
+}
+
+#wrap {
+    margin: auto;
+    width: 600px;
+}
+
+#bookshelf {
+    margin: auto;
+    width: 500px;
+    height: 220px;
+    padding: 5px; 
+    border: 1px solid black;
+    position: relative;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+div.bookframe {
+    margin: 0 2px 0 2px;
+    display: inline-block;
+    /*border: 2px solid black;
+    height: 200px;
+    width: 50px;
+}
+
+input[type="radio"].book {
+    float: left;
+    display: none;
+}
+
+
+input[type="radio"].book + div  + div {
+    position: relative;
+    z-index: 1;
+    float: left;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    width: 200px;
+    height: 50px;
+    border: 1px solid blue;
+    top: 0;
+}
+*/
+
+input[type="radio"].book + div {
+    position: fixed;
+    width: 400px;
+    height: 100px;
+    text-align: center;
+    font-weight: bold;
+    /* background: #000000; */
+    color: #FFFFFF;
+    font-size: 30px;
+    /*Begin Chrome on Android Fix*/
+    min-height: 1px;
+    max-height: 10000px;
+    line-height: 30px;
+    /*End Chrome on Android Fix */
+    top: 750px;
+    left: calc(50% - 200px);
+    margin: 0;
+    display: none;
+    /* border: 2px solid red; */
+    box-sizing: border-box;
+}
+
+input[type="radio"].book + div > span {
+    font-size: 65%;
+    display: inline;
+}
+
+input[type="radio"]:checked.book + div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bookframe label {
+
+}
+
+.label {
+    position: relative;
+}
+.label label {
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box;
+    width: 50px;
+    height: 200px;
+    border: 2px solid black;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.label div {
+    position: absolute;
+    box-sizing: border-box;
+    line-height: 45px;
+    z-index: 1;
+    width: 200px;
+    height: 50px;
+    font-size: 120%;
+    font-weight: bold;
+    text-align: center;
+    color: #FFFFFF;
+    background: red;
+    transform: rotate(-90deg);
+    transform-origin: 0 0;
+    border: 1px solid blue;
+    top: 200px;
+    left: calc(50% - 25px);
+    
+    
+}
   </style>
 </head>
 
@@ -79,7 +209,38 @@
     </nav>
 
     <section class="page-section cta">
-      <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav" style="background-color: black;">
+        <div id="book">
+          <canvas id="pageflip-canvas"></canvas>
+          <div id="pages">
+            <section>
+              <div>
+                <h2>History</h2>
+                <p>Canvas was initially introduced by Apple for use inside their own Mac OS X WebKit component, powering applications like Dashboard widgets and the Safari browser. Later, it was adopted by Gecko browsers and Opera and standardized by the WHATWG on new proposed specifications for next generation web technologies.</p>
+              </div>
+            </section>
+            <section>
+              <div>
+                <h2>Usage</h2>
+                <p>Canvas consists of a drawable region defined in HTML code with height and width attributes. JavaScript code may access the area through a full set of drawing functions similar to other common 2D APIs, thus allowing for dynamically generated graphics. Some anticipated uses of canvas include building graphs, animations, games, and image composition.</p>
+              </div>
+            </section>
+            <section>
+              <div>
+                <h2>Reactions</h2>
+                <p>At the time of its introduction the canvas element was met with mixed reactions from the web standards community. There have been arguments against Apple's decision to create a new proprietary element instead of supporting the SVG standard. There are other concerns about syntax e.g. the absence of a namespace.</p>
+              </div>
+            </section>
+            <section>
+              <div>
+                <h2>Support</h2>
+                <p>The element is currently supported by the latest versions of Mozilla Firefox, Google Chrome, Safari, and Opera. It is not natively implemented by Internet Explorer (IE) as of version 8, though support is in development for Internet Explorer 9; however, many of the Canvas element's features can be supported in IE, for example by using Google or Mozilla plugins, JavaScript libraries and either Adobe Flash or IE's proprietary VML.</p>
+              </div>
+            </section>
+          </div>
+        </div>
+        <script type="text/javascript" src="pageflip.js"></script>
+        
+      <!-- <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav" style="background-color: black;">
         <div class="container">
           <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Start Bootstrap</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -436,8 +597,8 @@
 
 
           </div>
-        </div>
-      </div>
+        </div> -->
+      <!-- </div> -->
     </section>
     <footer class="footer text-faded text-center py-5">
       <div class="container">
